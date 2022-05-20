@@ -1,6 +1,6 @@
 # IOL CodingChallenge
  Resolucion del Coding Challenge planteado.
- Se busco refactorizar bajo los principios de **SOLID**, intentando escribir un mejor codigo, buscando mantener una **alta cohesion y un bajo nivel de acoplamiento**.  <br/>Se desacoplaron las Formas Geometricas del Reporte, de manera que cada una es independiente de la otra, un Reporte no tiene por que conocer de Formas Geometricas y viceversa.  
+ Se busco refactorizar bajo los principios de **SOLID**, intentando escribir un mejor codigo, buscando mantener una **alta cohesion y un bajo nivel de acoplamiento**.  <br/>Se desacoplaron las Formas Geometricas del Reporte, de manera que cada una es independiente de la otra. Un Reporte no tiene por que conocer de Formas Geometricas y viceversa.  
  Tambien se separaron las traducciones de las Formas Geometricas y el Reporte, las traducciones son administradas por el framework, mediante el cambio de la configuracion regional (en el scope de generacion del reporte), haciendo uso de diccionarios de resources (se encuentran en un proyecto aparte).  
  Por ultimo las Formas Geometricas se modelaron en base a una clase abstracta que les da la estructura general, para que luego cada clase concreta redefina sus metodos particulares.
  
