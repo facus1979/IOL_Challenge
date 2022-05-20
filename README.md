@@ -1,7 +1,11 @@
 # IOL CodingChallenge
  Resolucion del Coding Challenge planteado.
  Se busco refactorizar bajo los principios de **SOLID**, intentando escribir un mejor codigo, buscando mantener una **alta cohesion y un bajo nivel de acoplamiento**.
-
+ Se desacoplaron las Formas Geometricas del Reporte. 
+ Cada uno pasa a ser una entidad distinta la cual es independiente del otro, asi como sus Tareas, un Reporte no tiene por que conocer de Formas Geometricas y Viceversa.
+ Tambien se separaron las traducciones de las Formas Geometricas y el Reporte, las traducciones son administradas por el framework, mediante el cambio de la configuracion regional (en el scope de generacion del reporte), haciendo uso de diccionarios de resources (se encuentran en un proyecto aparte).
+ Por ultimo las Formas Geometricas se modelaron en base a una clase abstracta que les da la estructura general, para que luego cada clase concreta redefina sus metodos particulares.
+ 
  ### Proyectos contenidos en la Solucion
  Todos los proyectos estan realizados en .NET Framework 4.5.2
 
