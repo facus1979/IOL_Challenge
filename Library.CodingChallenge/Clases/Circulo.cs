@@ -4,6 +4,11 @@ namespace Library.CodingChallenge.Clases
 {
     public class Circulo : FormaGeometrica
     {
+        /*
+        Clase Concreta Circulo, la cual hereda de FormaGeometrica y 
+        redefine los metodos para calculo de Area y Perimetro.
+        Ademas de asignarle valor a la variable _geoType en su construccion.
+        */
         public Circulo(decimal lado) : base(lado)
         {
             _geoType = "circle";

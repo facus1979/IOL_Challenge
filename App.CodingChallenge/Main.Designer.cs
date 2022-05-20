@@ -33,19 +33,19 @@ namespace App.CodingChallenge
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Gen = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Figura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.Button();
             this.txt_lado = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Figura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -69,6 +69,28 @@ namespace App.CodingChallenge
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Formas Geometricas";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Castellano",
+            "Ingles"});
+            this.comboBox2.Location = new System.Drawing.Point(69, 199);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(107, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Idioma:";
             // 
             // Gen
             // 
@@ -119,6 +141,20 @@ namespace App.CodingChallenge
             this.dataGridView1.Size = new System.Drawing.Size(393, 139);
             this.dataGridView1.TabIndex = 6;
             // 
+            // Figura
+            // 
+            this.Figura.DataPropertyName = "Figura";
+            this.Figura.HeaderText = "Figura";
+            this.Figura.Name = "Figura";
+            this.Figura.ReadOnly = true;
+            // 
+            // Lado
+            // 
+            this.Lado.DataPropertyName = "Lado";
+            this.Lado.HeaderText = "Lado";
+            this.Lado.Name = "Lado";
+            this.Lado.ReadOnly = true;
+            // 
             // Add
             // 
             this.Add.Location = new System.Drawing.Point(338, 23);
@@ -131,10 +167,10 @@ namespace App.CodingChallenge
             // 
             // txt_lado
             // 
-            this.txt_lado.Location = new System.Drawing.Point(300, 25);
-            this.txt_lado.Mask = "#.##";
+            this.txt_lado.Location = new System.Drawing.Point(293, 25);
+            this.txt_lado.Mask = "##.##";
             this.txt_lado.Name = "txt_lado";
-            this.txt_lado.Size = new System.Drawing.Size(32, 20);
+            this.txt_lado.Size = new System.Drawing.Size(39, 20);
             this.txt_lado.TabIndex = 4;
             // 
             // label2
@@ -170,20 +206,6 @@ namespace App.CodingChallenge
             this.comboBox1.Size = new System.Drawing.Size(173, 21);
             this.comboBox1.TabIndex = 0;
             // 
-            // Figura
-            // 
-            this.Figura.DataPropertyName = "Figura";
-            this.Figura.HeaderText = "Figura";
-            this.Figura.Name = "Figura";
-            this.Figura.ReadOnly = true;
-            // 
-            // Lado
-            // 
-            this.Lado.DataPropertyName = "Lado";
-            this.Lado.HeaderText = "Lado";
-            this.Lado.Name = "Lado";
-            this.Lado.ReadOnly = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
@@ -202,28 +224,6 @@ namespace App.CodingChallenge
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(769, 424);
             this.webBrowser1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 202);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Idioma:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Castellano",
-            "Ingles"});
-            this.comboBox2.Location = new System.Drawing.Point(69, 199);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(107, 21);
-            this.comboBox2.TabIndex = 9;
             // 
             // Main
             // 

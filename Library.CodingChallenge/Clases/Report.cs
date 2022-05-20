@@ -7,14 +7,20 @@ using System.Text;
 
 namespace Library.CodingChallenge.Clases
 {
+    /*
+    Clase Reporte, la misma contiene todos los metodos para crear las distintas secciones del reporte,
+    asi como tambien metodos helper para la sumarizacion de lineas. Para esto ultimo utiliza un Dictionary
+    y un Struct para tener un acceso rapido, mantener el orden, conteo y sumarizacion de la lista de FormaGeometrica.
+    */
     class Report
     {
-        private Hashtable ht;
+
+        private Dictionary<string, CountObject> dict;
         private List<FormaGeometrica> formas;
 
         public Report(List<FormaGeometrica> f)
         {
-            ht = new Hashtable();
+            dict = new Dictionary<string, CountObject>();
             this.formas = f;
         }
 
@@ -40,8 +46,6 @@ namespace Library.CodingChallenge.Clases
             return sb.ToString();
         }
 
- 
-
         private string PrintEmpty()
         {
             
@@ -56,20 +60,24 @@ namespace Library.CodingChallenge.Clases
         private void ProcessLines(FormaGeometrica f)
         {
             CountObject c;
-            if (ht[f.GeoType] == null)
+
+            if (!dict.TryGetValue(f.GeoType, out c))
             {
                 c = new CountObject();
+                c.Prefix = f.GeoType;
+                c.Cantidad++;
+                c.SumaArea += f.CalcularArea();
+                c.SumaPerimetro += f.CalcularPerimetro();
+                dict.Add(f.GeoType, c);
             }
-            else
-            {
-                c = (CountObject)ht[f.GeoType];
+            else {
+                c.Prefix = f.GeoType;
+                c.Cantidad++;
+                c.SumaArea += f.CalcularArea();
+                c.SumaPerimetro += f.CalcularPerimetro();
+                dict[f.GeoType] = c;
             }
-
-            c.Prefix = f.GeoType;
-            c.Cantidad++;
-            c.SumaArea += f.CalcularArea();
-            c.SumaPerimetro += f.CalcularPerimetro();
-            ht[f.GeoType] = c;
+            
         }
 
         private string PrintLines()
@@ -83,11 +91,13 @@ namespace Library.CodingChallenge.Clases
             decimal totalPerimetros = 0m;
             decimal totalAreas = 0m;
             string lines = "";
+
             //Se cambio el formato de los numeros de #.## a 0.## para expresar correctamente numeros menores a 1
             //la regionalidad tambien adapta los simbolos decimales y de separacion de miles
-            foreach (DictionaryEntry entry in ht)
+
+            foreach(KeyValuePair<string, CountObject> element in dict)
             {
-                CountObject c = (CountObject)ht[entry.Key];
+                CountObject c = dict[element.Key];
                 if (c.Cantidad > 0)
                 {
                     totalFormas += c.Cantidad;
@@ -99,8 +109,8 @@ namespace Library.CodingChallenge.Clases
 
                 }
             }
-
-            lines += "TOTAL:<br/> " + totalFormas + " " + Library.Translation.Language.shapes + " " + Library.Translation.Language.perimeter + " " + totalPerimetros.ToString("0.##") + " " +
+            //Se corrigue plural en cantidad de forma/formas
+            lines += "TOTAL:<br/> " + totalFormas + " " + (totalFormas>1 ? Library.Translation.Language.shape_plural : Library.Translation.Language.shape) + " " + Library.Translation.Language.perimeter + " " + totalPerimetros.ToString("0.##") + " " +
                     Library.Translation.Language.area + " " + totalAreas.ToString("0.##");
 
 
@@ -108,7 +118,9 @@ namespace Library.CodingChallenge.Clases
         }
 
     }
-
+    /*
+    Struct utilizado como helper para sumarizacion
+    */
     struct CountObject
     {
         public string Prefix;

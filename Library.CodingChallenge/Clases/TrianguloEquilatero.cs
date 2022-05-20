@@ -5,6 +5,11 @@ namespace Library.CodingChallenge.Clases
 {
     public class TrianguloEquilatero : FormaGeometrica
     {
+        /*
+        Clase Concreta TrianguloEquilatero, la cual hereda de FormaGeometrica y
+        redefine los metodos para calculo de Area y Perimetro.
+        Ademas de asignarle valor a la variable _geoType en su construccion.
+        */
         public TrianguloEquilatero(decimal lado) : base(lado)
         {
             _geoType = "triangle"; 

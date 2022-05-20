@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using System;
 
-
 namespace Test.CodingChallenge
 {
     [TestFixture]
@@ -49,14 +48,14 @@ namespace Test.CodingChallenge
         public void TestCirculoPerimetro()
         {
             Circulo f = new Circulo(2);
-            Assert.AreEqual("6.28", f.CalcularPerimetro().ToString("0.##"));
+            Assert.AreEqual(6.28, decimal.Round(f.CalcularPerimetro(),2));
         }
 
         [TestCase]
         public void TestCirculoArea()
         {
             Circulo f = new Circulo(2);
-            Assert.AreEqual("3.14", f.CalcularArea().ToString("0.##"));
+            Assert.AreEqual(3.14, decimal.Round(f.CalcularArea(),2));
         }
 
         [TestCase]
@@ -70,7 +69,7 @@ namespace Test.CodingChallenge
         public void TestTrianguloEquilateroArea()
         {
             TrianguloEquilatero f = new TrianguloEquilatero(2);
-            Assert.AreEqual("1.73", f.CalcularArea().ToString("0.##"));
+            Assert.AreEqual(1.73, decimal.Round(f.CalcularArea(),2));
         }
 
         [TestCase]
@@ -79,10 +78,13 @@ namespace Test.CodingChallenge
             Assert.Throws<ArgumentException>(() => new Cuadrado(0));
         }
 
+        [TestCase]
         public void TestCirculoLado0()
         {
             Assert.Throws<ArgumentException>(() => new Circulo(0));
         }
+
+        [TestCase]
         public void TestTrianguloEquilateroLado0()
         {
             Assert.Throws<ArgumentException>(() => new TrianguloEquilatero(0));
